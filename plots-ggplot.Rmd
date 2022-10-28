@@ -45,5 +45,11 @@ ggbase +
 
 ```{r}
 gg_np <- ggplot(data = ca_np, aes(x = year, y = visitors, group = park_name))
+gg_np +
+  geom_line(show.legend = FALSE) +
+  theme_light() + 
+  labs(x = "year", y = "annual visitors") +
+  facet_wrap(~ park_name)
+ggsave(here("figures", "np_graph.jpg"), dpi = 180, width = 8, height = 7)
 ```
 
