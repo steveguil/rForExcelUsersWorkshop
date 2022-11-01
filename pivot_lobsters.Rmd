@@ -21,3 +21,20 @@ lobsters <- read_xlsx(here("data/lobsters.xlsx"), skip = 4)
 # explore data
 skimr::skim(lobsters) 
 ```
+
+
+```{r}
+siteyear_summary <- lobsters %>% 
+  group_by(site, year) %>% 
+  summarize(count_by_siteyear = n(),
+            mean_size_mm = mean(size_mm, na.rm = TRUE),
+            sd_size_mm = sd(size_mm, na.rm = TRUE))
+
+# lobsters %>% 
+#   group_by(year, site) %>% 
+#   summarize(count_by_siteyear = n())
+
+siteyear_summary %>% 
+  kable()
+```
+There are `r nrow(lobsters)` total lobsters included in this report.
