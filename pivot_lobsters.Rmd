@@ -28,7 +28,8 @@ siteyear_summary <- lobsters %>%
   group_by(site, year) %>% 
   summarize(count_by_siteyear = n(),
             mean_size_mm = mean(size_mm, na.rm = TRUE),
-            sd_size_mm = sd(size_mm, na.rm = TRUE))
+            sd_size_mm = sd(size_mm, na.rm = TRUE),
+            meadian_size_mm = median(size_mm, na.rm = TRUE))
 
 # lobsters %>% 
 #   group_by(year, site) %>% 
